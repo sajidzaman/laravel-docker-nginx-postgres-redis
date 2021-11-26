@@ -25,9 +25,9 @@ Simple docker-compose for Laravel, with postgresql, reddis, nginx and php-fpm
 
 # Images
 + redis:alpine
-+ postgres:9.5-alpine
++ postgres:ubuntu/postgres
 + nginx:alpine
-+ php71-fpm:latest
++ php74-fpm:latest
 
 # SourceFiles
 
@@ -35,7 +35,7 @@ Simple docker-compose for Laravel, with postgresql, reddis, nginx and php-fpm
 
 
 ### php-fpm: Extensions PHP and PHP.INI
-+ Dockerfile: php7.1-pgsql php7.1-gd php-redis
++ Dockerfile: php7.4-pgsql php7.4-gd php-redis
 + php-ini-overrides.ini
 
 ### nginx: nginx.conf
@@ -57,5 +57,5 @@ Simple docker-compose for Laravel, with postgresql, reddis, nginx and php-fpm
 + Verify all containers running: `docker ps -a`
 + Stop all containers and remove: `docker stop $(docker ps -a -q)` and `docker rm $(docker ps -a -q)`
 + Try to start again `docker-compose up -d`
-
++ Executing commands on php-fpm container `docker exec -ti 35f7d3f396c1 php artisan tinker`
 
